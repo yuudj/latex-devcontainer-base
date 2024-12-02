@@ -13,11 +13,11 @@ on:
   
 jobs:
   build-api:
-    name: Build and push api image
+    name: Build and push docker image
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Build Image
         id: build-image
         uses: redhat-actions/buildah-build@v2
