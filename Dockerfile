@@ -24,8 +24,7 @@ RUN curl -L http://cpanmin.us | perl - App::cpanminus \
     && cpanm Log::Dispatch::File \
     && cpanm YAML::Tiny \
     && cpanm File::HomeDir \
-    && cpanm Unicode::GCString \
-    && cpanm Graphics::SVG
+    && cpanm Unicode::GCString 
 
 # Clean up
 RUN apt-get autoremove -y \
