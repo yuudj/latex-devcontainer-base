@@ -15,7 +15,7 @@ RUN apt-get update && apt-get -y upgrade \
     texlive-latex-extra \
     texlive-fonts-recommended \
     texlive-science \
-    biber chktex latexmk make python3-pygments python3-pkg-resources cm-super \
+    biber chktex latexmk make python3-pygments python3-pkg-resources cm-super inkscape\
     texlive-lang-spanish 
 
 # latexindent modules
@@ -24,7 +24,8 @@ RUN curl -L http://cpanmin.us | perl - App::cpanminus \
     && cpanm Log::Dispatch::File \
     && cpanm YAML::Tiny \
     && cpanm File::HomeDir \
-    && cpanm Unicode::GCString
+    && cpanm Unicode::GCString \
+    && cpanm Graphics::SVG
 
 # Clean up
 RUN apt-get autoremove -y \
