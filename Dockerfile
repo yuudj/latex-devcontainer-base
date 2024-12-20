@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:bullseye-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
@@ -15,11 +15,10 @@ RUN apt-get update && apt-get -y upgrade \
     texlive-latex-extra \
     texlive-fonts-recommended \
     texlive-science \
-    biber chktex latexmk make python3-pygments python3-pkg-resources cm-super inkscape\
+    biber chktex latexmk make python3-pygments python3-pkg-resources cm-super inkscape curl \
     texlive-lang-spanish 
 
 # latexindent modules
-RUN apt-get install --no-install-recommends -y curl
 RUN curl -L http://cpanmin.us | perl - App::cpanminus \
     && cpanm Log::Dispatch::File \
     && cpanm YAML::Tiny \
@@ -30,6 +29,7 @@ RUN curl -L http://cpanmin.us | perl - App::cpanminus \
 RUN apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+
 ENV DEBIAN_FRONTEND=dialog \
     LANG=C.UTF-8 \
     LC_ALL=C.UTF-8
