@@ -37,6 +37,8 @@ RUN apt-get update && apt-get -y upgrade \
     texlive-science \
     biber chktex latexmk make python3-pygments python3-pkg-resources cm-super inkscape curl \
     texlive-lang-spanish \
+    texlive-bibtex-extra \
+    biber  \ 
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
